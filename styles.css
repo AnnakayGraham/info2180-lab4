@@ -1,6 +1,29 @@
 body{
-    background-color: grey;
+   background-color:lightgrey;
+    margin:0%;
 }
 .button{
-    background-color: grey;
+    background-color: red;
+    color:white;
+    border: none;
+    padding:10px;
+}
+#SuperHeroes{
+    width:65%;
+    box-sizing: border-box;
+    padding:10px;
+}
+header{
+
+    background-color: lightblue;
+    color:white;
+    font-size: 20px;
+    text-align: center;
+    padding: 30px;
+}
+#result{
+
+}
+h3{
+    font-weight: bold;
 }

@@ -1,6 +1,6 @@
-<?php header('Access-Control-Allow-Origin: *'); ?>
-<?php
-  
+<?php header('Access-Control-Allow-Origin: *'); 
+
+
 $superheroes = [
   [
       "id" => 1,
@@ -64,10 +64,33 @@ $superheroes = [
   ], 
 ];
 
-?>
+$emptyA = [];
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+$accept = $_REQUEST["accept"];
+
+if ($accept !== ""){
+
+    $accept = strtolower($accept);
+
+    foreach($superheroes as $superhero){
+
+        $alias = strtolower($superhero["alias"]);
+        $name = strtolower($superhero["name"]);
+        if ( $accept === $alias  || $accept === $name ){
+            $emptyA = $superhero;
+        }
+    }
+    echo $emptyA === []? json_encode("Superhero Not Found") : json_encode($emptyA); 
+}else {
+        
+        echo "<ul>";
+        foreach ($superheroes as $superhero){
+        echo "<li>".$superhero["alias"]."</li>";
+        }
+        echo "</ul>";
+
+}
+
+
+
+?>
